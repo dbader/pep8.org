@@ -1220,6 +1220,15 @@ if not len(seq):</code></pre>
 <p class="no">Worse:</p>
 <pre><code class="language-python">if greeting is True:</code></pre></li>
 
+<li><p>Use of the flow control statements <code>return</code>/<code>break</code>/<code>continue</code> within the finally suite of a <code>try...finally</code>, where the flow control statement would jump outside the finally suite, is discouraged.  This is because such statements will implicitly cancel any active exception that is propagating through the finally suite.</p>
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">def foo():
+    try:
+        1 / 0
+    finally:
+        return 42
+</code></pre></li> 
+
 </ul>
 
 
